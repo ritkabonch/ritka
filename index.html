@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="img/1.jpg" alt="Логотип Гарри Поттер">
+        </div>
+        <h1 class="site-title">Мир Гарри Поттера</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">О мире</a></li>
+                <li><a href="#section2">Книги и фильмы</a></li>
+                <li><a href="#section3">Викторина</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slider-container">
+        <div class="slider">
+            <img src="img/8.jpg"  onclick="openFullscreenImage(this)" alt="Гарри Поттер">
+            <img src="img/9.jpg"  onclick="openFullscreenImage(this)" alt="Хогвартс">
+            <img src="img/10.jpg"  onclick="openFullscreenImage(this)" alt="Волшебный мир">
+            <img src="img/11.jpg"  onclick="openFullscreenImage(this)" alt="Магические существа">
+        </div>
+        <button class="prev-button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+        <button class="next-button" aria-label="Посмотреть следующий слайд">&gt;</button>  
+    </div>
+
+    <section id="section1">
+        <div class="text_o_nas">
+            <h1>О мире Гарри Поттера:</h1>
+            <p>Мир Гарри Поттера — это удивительная вселенная, созданная британской писательницей Дж. К. Роулинг, где магия и реальность переплетаются в захватывающих историях о дружбе, храбрости и волшебстве.</p>
+            <p>Здесь вы найдете информацию о книгах, фильмах, персонажах и местах этого волшебного мира. От Хогвартса до Министерства Магии — каждый уголок наполнен тайнами и приключениями.</p>
+            <p>Мы приглашаем вас окунуться в магию и узнать больше о мире, который покорил сердца миллионов людей по всему миру.</p>
+        </div>
+    </section>
+
+    <section id="section2">
+        <div class="column-container">
+            <div class="column">
+                <h2>Гарри Поттер и философский камень</h2>
+                <img src="img/2.jpg" class="pic" onclick="openFullscreenImage(this)" alt="Философский камень">
+                <p>Первая книга серии, где Гарри узнает, что он волшебник, и поступает в Хогвартс. Начинается его путь в мир магии.</p>
+            </div>
+            <div class="column">
+                <h2>Гарри Поттер и Тайная комната</h2>
+                <img src="img/3.jpg" class="pic" onclick="openFullscreenImage(this)" alt="Тайная комната">
+                <p>Вторая часть приключений, где Хогвартс оказывается под угрозой из-за таинственного монстра, скрывающегося в школе.</p>
+            </div>
+            <div class="column">
+                <h2>Гарри Поттер и узник Азкабана</h2>
+                <img src="img/4.jpg" class="pic" onclick="openFullscreenImage(this)" alt="Узник Азкабана">
+                <p>Гарри встречает Сириуса Блэка, сбежавшего из тюрьмы Азкабан, и узнает правду о прошлом своих родителей.</p>
+            </div>
+        </div>
+        <div class="column-container">
+            <div class="column">
+                <h2>Гарри Поттер и Кубок огня</h2>
+                <img src="img/5.jpg" class="pic" onclick="openFullscreenImage(this)" alt="Кубок огня">
+                <p>Турнир трех волшебников возвращается в Хогвартс, но за этим скрывается темный замысел Возвращения Волан-де-Морта.</p>
+            </div>
+            <div class="column">
+                <h2>Гарри Поттер и Орден Феникса</h2>
+                <img src="img/6.jpg" class="pic" onclick="openFullscreenImage(this)" alt="Орден Феникса">
+                <p>Министерство магии отрицает возвращение Волан-де-Морта, а Гарри создает Отряд Дамблдора для подготовки к битве.</p>
+            </div>
+            <div class="column">
+                <h2>Гарри Поттер и Принц-полукровка</h2>
+                <img src="img/7.jpg" class="pic" onclick="openFullscreenImage(this)" alt="Принц-полукровка">
+                <p>Гарри находит учебник зельевара, помеченный как собственность "Принца-полукровки", и готовится к финальной битве.</p>
+            </div>
+        </div>
+        <div id="fullscreen-container" class="hidden">
+            <span class="close-button" onclick="closeFullscreenImage()">&times;</span>
+            <img src="" alt="Полноэкранное изображение" id="fullscreen-image">
+        </div>
+    </section>
+
+    <section id="section3">
+        <div class="quiz-container">
+            <h2 class="quiz-title">Викторина по Гарри Поттеру</h2>
+            <div class="quiz-progress">
+                <div class="progress-bar" id="progressBar"></div>
+                <span id="progressText">Вопрос 1 из 5</span>
+            </div>
+            
+            <div class="quiz-question" id="questionContainer">
+                <h3 id="question">Загрузка вопроса...</h3>
+                <div class="quiz-options" id="optionsContainer"></div>
+            </div>
+            
+            <div class="quiz-result hidden" id="resultContainer">
+                <h3 id="resultTitle">Результат викторины</h3>
+                <div class="score-display">
+                    <div class="score-circle">
+                        <span id="score">0</span>
+                        <span class="score-label">/5</span>
+                    </div>
+                    <p id="resultMessage">Здесь будет сообщение о вашем результате</p>
+                </div>
+                <div class="result-details" id="resultDetails"></div>
+                <button class="quiz-button" id="restartButton">Пройти ещё раз</button>
+            </div>
+            
+            <div class="quiz-controls">
+                <button class="quiz-button" id="prevButton" disabled>Назад</button>
+                <button class="quiz-button" id="nextButton">Далее</button>
+                <button class="quiz-button" id="submitButton" style="display: none;">Завершить</button>
+            </div>
+        </div>
+    </section>
+
+    <button id="scrollToTopButton">Вверх</button>
+</body>
+<footer style="width: 100%;">
+    <div class="social-icons">
+        <a href="https://web.telegram.org/" class="social-icon"><img src="img/tg.webp" alt="Telegram"></a>
+        <a href="https://vk.com" class="social-icon"><img src="img/vk.png" alt="VK"></a>
+        <a href="https://www.instagram.com/" class="social-icon"><img src="img/ig.png" alt="Instagram"></a>
+    </div>
+</footer>
+</html>
